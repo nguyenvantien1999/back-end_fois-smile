@@ -32,4 +32,10 @@ public class KaiwaController {
     public ArrayList<KaiwaContent> getAllContent(String maht) {
         return this.contentMapper.getAllKaiwaContent(maht);
     }
+    
+    @RequestMapping(value = "/test")
+    @ResponseBody
+    public String getAll() {
+        return "TEST";
+    }
 }
