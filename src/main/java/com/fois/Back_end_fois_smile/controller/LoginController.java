@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -52,19 +51,19 @@ public class LoginController {
     
     @RequestMapping(value = "/update",produces = "application/json")
     @ResponseBody
-    public Account updateAccount(@RequestBody Account record){
-//        boolean update = false;
-//        ObjectMapper om = new ObjectMapper();
-//        System.out.println(record);
-//        Account account;
-//        try {
-//            account = om.readValue(record, Account.class);
-//            System.out.println("account: " + account);
-//            this.accountMapper.updateByPrimaryKey(account);
-//            update = true;
-//        } catch (JsonMappingException e) {
-//        } catch (JsonProcessingException e) {
-//        }
+    public String updateAccount(String record){
+        boolean update = false;
+        ObjectMapper om = new ObjectMapper();
+        System.out.println(record);
+        Account account;
+        try {
+            account = om.readValue(record, Account.class);
+            System.out.println("account: " + account);
+            this.accountMapper.updateByPrimaryKey(account);
+            update = true;
+        } catch (JsonMappingException e) {
+        } catch (JsonProcessingException e) {
+        }
         return record;
     }    
     
