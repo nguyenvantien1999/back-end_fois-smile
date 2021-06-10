@@ -51,28 +51,36 @@ public class LoginController {
     
     @RequestMapping(value = "/update",produces = "application/json")
     @ResponseBody
-    public void updateAccount(String record){
+    public boolean updateAccount(String record){
+        boolean update = false;
         ObjectMapper om = new ObjectMapper();
+        System.out.println(record);
         Account account;
         try {
             account = om.readValue(record, Account.class);
+            System.out.println("account: " + account);
             this.accountMapper.updateByPrimaryKey(account);
+            update = true;
         } catch (JsonMappingException e) {
         } catch (JsonProcessingException e) {
         }
+        return update;
     }    
     
     @RequestMapping(value = "/info/update",produces = "application/json")
     @ResponseBody
-    public void updateInfor(String record){
+    public boolean updateInfor(String record){
+        boolean update = false;
         ObjectMapper om = new ObjectMapper();
         AccountInformation account;
         try {
             account = om.readValue(record, AccountInformation.class);
             this.accountInformationMapper.updateByPrimaryKey(account);
+            update = true;
         } catch (JsonMappingException e) {
         } catch (JsonProcessingException e) {
         }
+        return update;
     }
     
     @RequestMapping(value = "/getAllHVInfor", produces = "application/json")
