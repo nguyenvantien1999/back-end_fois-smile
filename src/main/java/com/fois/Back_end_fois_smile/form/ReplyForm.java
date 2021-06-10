@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class ReplyForm {
+    private String mabl;
     private String hoten;
     private String ndrep;
     private Date thoigian;

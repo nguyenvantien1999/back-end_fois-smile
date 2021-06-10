@@ -23,7 +23,7 @@ public class SendMailRemindService {
     @Autowired
     SendMailService sendMailService;
     
-    @Scheduled(cron = "0 0 7 * * *")
+    @Scheduled(cron = "0 2 11 * * *")
     public void checkNgayDN() {
         ArrayList<Account> listAcc = accountMapper.getAllAccHV();
         LocalDate dateNow = LocalDate.now();

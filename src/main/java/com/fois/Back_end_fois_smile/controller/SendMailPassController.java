@@ -23,7 +23,6 @@ public class SendMailPassController {
     @ResponseBody
     public Boolean sendPassToMail(String username) {
         Account account = accountMapper.getAccByMail(username);
-        
         if(account == null) {
             return false;
         }

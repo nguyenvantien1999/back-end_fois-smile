@@ -60,9 +60,7 @@ public class LoginController {
         } catch (JsonMappingException e) {
         } catch (JsonProcessingException e) {
         }
-    }
-    
-    
+    }    
     
     @RequestMapping(value = "/info/update",produces = "application/json")
     @ResponseBody

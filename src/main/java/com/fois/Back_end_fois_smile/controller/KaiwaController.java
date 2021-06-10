@@ -33,9 +33,4 @@ public class KaiwaController {
         return this.contentMapper.getAllKaiwaContent(maht);
     }
     
-    @RequestMapping(value = "/test")
-    @ResponseBody
-    public String getAll() {
-        return "TEST";
-    }
 }

@@ -103,6 +103,6 @@ public interface ReplyMapper {
     @Select("insert into schema01.reply (ndrep, thoigian, matk, mabl) values (#{ndrep}, #{thoigian}, #{matk}, #{mabl})")
     public void addReply(String ndrep, Date thoigian, int matk, int mabl);
     
-    @Select("select a.hoten, r.ndrep, r.thoigian from schema01.reply r INNER JOIN schema01.account_information a ON r.matk=a.matk WHERE mabl=#{mabl} ORDER BY marep DESC")
+    @Select("select r.mabl, a.hoten, r.ndrep, r.thoigian from schema01.reply r INNER JOIN schema01.account_information a ON r.matk=a.matk WHERE mabl=#{mabl} ORDER BY marep DESC")
     public ArrayList<ReplyForm> selectByMabl(int mabl);
 }
