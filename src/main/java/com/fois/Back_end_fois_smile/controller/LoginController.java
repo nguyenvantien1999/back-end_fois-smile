@@ -51,20 +51,16 @@ public class LoginController {
     
     @RequestMapping(value = "/update",produces = "application/json")
     @ResponseBody
-    public String updateAccount(String record){
-        boolean update = false;
+    public void updateAccount(String record){
         ObjectMapper om = new ObjectMapper();
-        System.out.println(record);
-        Account account;
-//        try {
-//            account = om.readValue(record, Account.class);
-//            System.out.println("account: " + account);
-//            this.accountMapper.updateByPrimaryKey(account);
-//            update = true;
-//        } catch (JsonMappingException e) {
-//        } catch (JsonProcessingException e) {
-//        }
-        return record;
+        Account account = new Account();
+        try {
+            account = om.readValue(record, Account.class);
+            System.out.println("account: " + account);
+            this.accountMapper.updateByPrimaryKey(account);
+        } catch (JsonMappingException e) {
+        } catch (JsonProcessingException e) {
+        }
     }    
     
     @RequestMapping(value = "/info/update",produces = "application/json")
