@@ -1,9 +1,11 @@
 package com.fois.Back_end_fois_smile.controller;
 
 import java.util.ArrayList;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -53,30 +55,30 @@ public class LoginController {
     @ResponseBody
     public void updateAccount(String record){
         ObjectMapper om = new ObjectMapper();
-        Account account = new Account();
+        Account account;
         try {
             account = om.readValue(record, Account.class);
-            System.out.println("account: " + account);
+            System.out.println(account.getThoigiandn()+ account.getUsername()+ account.getMatk());
             this.accountMapper.updateByPrimaryKey(account);
         } catch (JsonMappingException e) {
+            System.out.println(e);
         } catch (JsonProcessingException e) {
+            System.out.println(e);
         }
+          System.out.println(record);
     }    
     
     @RequestMapping(value = "/info/update",produces = "application/json")
     @ResponseBody
-    public boolean updateInfor(String record){
-        boolean update = false;
+    public void updateInfor(String record){
         ObjectMapper om = new ObjectMapper();
         AccountInformation account;
         try {
             account = om.readValue(record, AccountInformation.class);
             this.accountInformationMapper.updateByPrimaryKey(account);
-            update = true;
         } catch (JsonMappingException e) {
         } catch (JsonProcessingException e) {
         }
-        return update;
     }
     
     @RequestMapping(value = "/getAllHVInfor", produces = "application/json")
