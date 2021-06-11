@@ -52,10 +52,11 @@ public class LoginController {
     
     @RequestMapping(value = "/update",produces = "application/json")
     @ResponseBody
-    public void updateAccount(int matk, String username, String password, Integer loaitk, long thoigiandn, Boolean remove){
+    public boolean updateAccount(int matk, String username, String password, Integer loaitk, long thoigiandn, Boolean remove){
         Date dateLogin = new Date(thoigiandn);
         Account account = new Account(matk, username, password, loaitk, dateLogin, remove);
         this.accountMapper.updateByPrimaryKey(account);
+        return true;
     }    
     
     @RequestMapping(value = "/info/update",produces = "application/json")
