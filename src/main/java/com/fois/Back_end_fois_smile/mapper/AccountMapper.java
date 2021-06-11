@@ -81,7 +81,7 @@ public interface AccountMapper {
     public void removeAccHV(int matk);
     
     @Select("UPDATE schema01.account SET username=#{username}, password=#{password}, loaitk=#{loaitk}, thoigiandn=#{thoigiandn}, remove=#{remove} WHERE matk=#{matk}")
-    public void updateAccount(int matk, String username, String password, int loaitk, Date thoigiandn, Boolean remove);
+    public void updateAccount(Account account);
     
     @Select("select * from schema01.account a where a.loaitk = 3 and a.remove = false ORDER BY thoigiandn DESC")
     public ArrayList<Account> getAllAccHV(); 
