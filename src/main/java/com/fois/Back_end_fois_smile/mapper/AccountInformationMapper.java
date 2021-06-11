@@ -1,5 +1,6 @@
 package com.fois.Back_end_fois_smile.mapper;
 
+import com.fois.Back_end_fois_smile.entity.Account;
 import com.fois.Back_end_fois_smile.entity.AccountInformation;
 import com.fois.Back_end_fois_smile.entity.AccountInformationExample;
 import java.util.ArrayList;
@@ -86,4 +87,7 @@ public interface AccountInformationMapper {
     
     @Select("insert into schema01.account_information (hoten, matk) values (#{hoten}, #{matk})")
     public void registration(String hoten, int matk);
+    
+    @Select("UPDATE schema01.account SET hoten=#{hoten}, ngaysinh=#{ngaysinh}, gioitinh=#{gioitinh}, diachi=#{diachi} WHERE matt=#{matt}")
+    public void updateAccountInfo(AccountInformation accountInformation);
 }

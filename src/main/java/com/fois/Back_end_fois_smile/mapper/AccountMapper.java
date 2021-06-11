@@ -3,7 +3,6 @@ package com.fois.Back_end_fois_smile.mapper;
 import com.fois.Back_end_fois_smile.entity.Account;
 import com.fois.Back_end_fois_smile.entity.AccountExample;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

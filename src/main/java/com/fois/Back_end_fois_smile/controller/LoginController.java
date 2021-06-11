@@ -64,7 +64,7 @@ public class LoginController {
     public void updateInfor(int matt, String hoten, long ngaysinh, int gioitinh, String diachi, int matk){
         Date ns = new Date(ngaysinh);
         AccountInformation aInformation = new AccountInformation(matt, hoten, ns, gioitinh, diachi, matk);
-        this.accountInformationMapper.updateByPrimaryKey(aInformation);
+        this.accountInformationMapper.updateAccountInfo(aInformation);
     }
     
     @RequestMapping(value = "/getAllHVInfor", produces = "application/json")
