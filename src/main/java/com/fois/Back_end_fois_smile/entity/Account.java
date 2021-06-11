@@ -144,4 +144,13 @@ public class Account {
     public void setRemove(Boolean remove) {
         this.remove = remove;
     }
+    
+    public Account(int matk, String username, String password, Integer loaitk, Date thoigiandn, Boolean remove) {
+        this.matk = matk;
+        this.username = username;
+        this.password = password;
+        this.loaitk = loaitk;
+        this.thoigiandn = thoigiandn;
+        this.remove = remove;
+    }
 }

@@ -142,4 +142,13 @@ public class AccountInformation {
     public void setMatk(Integer matk) {
         this.matk = matk;
     }
+    
+    public AccountInformation(int matt, String hoten, Date ngaysinh, int gioitinh, String diachi, int matk) {
+        this.matt = matt;
+        this.hoten = hoten;
+        this.ngaysinh = ngaysinh;
+        this.gioitinh = gioitinh;
+        this.diachi = diachi;
+        this.matk = matk;
+    }
 }

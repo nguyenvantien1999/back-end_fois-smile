@@ -1,13 +1,10 @@
 package com.fois.Back_end_fois_smile.controller;
 
 import java.util.ArrayList;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -55,23 +52,18 @@ public class LoginController {
     
     @RequestMapping(value = "/update",produces = "application/json")
     @ResponseBody
-    public void updateAccount(String record) throws JsonMappingException, JsonProcessingException{        
-        Account account = new ObjectMapper().readValue(record, Account.class);
+    public void updateAccount(int matk, String username, String password, Integer loaitk, long thoigiandn, Boolean remove){
+        Date dateLogin = new Date(thoigiandn);
+        Account account = new Account(matk, username, password, loaitk, dateLogin, remove);
         this.accountMapper.updateByPrimaryKey(account);
-        System.out.println(account.getThoigiandn());
     }    
     
     @RequestMapping(value = "/info/update",produces = "application/json")
     @ResponseBody
-    public void updateInfor(String record){
-        ObjectMapper om = new ObjectMapper();
-        AccountInformation account;
-        try {
-            account = om.readValue(record, AccountInformation.class);
-            this.accountInformationMapper.updateByPrimaryKey(account);
-        } catch (JsonMappingException e) {
-        } catch (JsonProcessingException e) {
-        }
+    public void updateInfor(int matt, String hoten, long ngaysinh, int gioitinh, String diachi, int matk){
+        Date ns = new Date(ngaysinh);
+        AccountInformation aInformation = new AccountInformation(matt, hoten, ns, gioitinh, diachi, matk);
+        this.accountInformationMapper.updateByPrimaryKey(aInformation);
     }
     
     @RequestMapping(value = "/getAllHVInfor", produces = "application/json")
