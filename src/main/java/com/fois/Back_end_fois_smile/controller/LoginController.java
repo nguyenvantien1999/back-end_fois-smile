@@ -54,8 +54,8 @@ public class LoginController {
     @ResponseBody
     public boolean updateAccount(int matk, String username, String password, Integer loaitk, long thoigiandn, Boolean remove){
         Date dateLogin = new Date(thoigiandn);
-        Account account = new Account(matk, username, password, loaitk, dateLogin, remove);
-        this.accountMapper.updateByPrimaryKey(account);
+//        Account account = new Account(matk, username, password, loaitk, dateLogin, remove);
+//        this.accountMapper.updateByPrimaryKey(account);
         return true;
     }    
     
