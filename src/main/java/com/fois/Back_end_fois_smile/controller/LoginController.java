@@ -1,10 +1,12 @@
 package com.fois.Back_end_fois_smile.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,19 +55,10 @@ public class LoginController {
     
     @RequestMapping(value = "/update",produces = "application/json")
     @ResponseBody
-    public void updateAccount(String record){
-        ObjectMapper om = new ObjectMapper();
-        Account account;
-        try {
-            account = om.readValue(record, Account.class);
-            System.out.println(account.getThoigiandn()+ account.getUsername()+ account.getMatk());
-            this.accountMapper.updateByPrimaryKey(account);
-        } catch (JsonMappingException e) {
-            System.out.println(e);
-        } catch (JsonProcessingException e) {
-            System.out.println(e);
-        }
-          System.out.println(record);
+    public void updateAccount(String record) throws JsonMappingException, JsonProcessingException{        
+        Account account = new ObjectMapper().readValue(record, Account.class);
+        this.accountMapper.updateByPrimaryKey(account);
+        System.out.println(account.getThoigiandn());
     }    
     
     @RequestMapping(value = "/info/update",produces = "application/json")
