@@ -62,7 +62,11 @@ public class LoginController {
     @RequestMapping(value = "/info/update",produces = "application/json")
     @ResponseBody
     public void updateInfor(int matt, String hoten, long ngaysinh, int gioitinh, String diachi, int matk){
-        Date ns = new Date(ngaysinh);
+        Date ns;
+        if(ngaysinh != 0)
+            ns = new Date(ngaysinh);
+        else ns = null;
+        
         AccountInformation aInformation = new AccountInformation(matt, hoten, ns, gioitinh, diachi, matk);
         this.accountInformationMapper.updateAccountInfo(aInformation);
     }
