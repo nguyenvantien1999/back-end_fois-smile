@@ -94,6 +94,6 @@ public interface AccountMapper {
     @Select("select * from schema01.account a where a.username = #{username} and a.remove = false")
     public Account getAccByMail(String username);
     
-    @Select("insert into schema01.account (username, password, loaitk) values (#{username}, #{password}, 3)")
-    public void registration(String username, String password);
+    @Select("insert into schema01.account (username, password, loaitk) values (#{username}, #{password}, #{loaitk})")
+    public void registration(String username, String password, int loaitk);
 }

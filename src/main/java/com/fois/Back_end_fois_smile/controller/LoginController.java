@@ -94,9 +94,10 @@ public class LoginController {
             String user = regis.getUsername();
             String pass = regis.getPass();
             String hoten = regis.getHoten();
+            int loaitk = regis.getLoaitk();
             Account acc = accountMapper.getAccByMail(user);
             if(acc == null) {
-                this.accountMapper.registration(user, pass);
+                this.accountMapper.registration(user, pass, loaitk);
                 Account account = this.accountMapper.getAccount(user, pass);
                 int matk = account.getMatk();
                 this.accountInformationMapper.registration(hoten, matk);

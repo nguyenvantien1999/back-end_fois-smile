@@ -84,7 +84,7 @@ public interface AccountInformationMapper {
     @Select("SELECT * FROM schema01.account_information i INNER JOIN schema01.account a ON i.matk = a.matk where a.loaitk = 3 and remove=false;")
     public ArrayList<AccountInformation> getAllHVInformation();
     
-    @Select("insert into schema01.account_information (hoten, matk) values (#{hoten}, #{matk})")
+    @Select("insert into schema01.account_information (hoten, matk, gioitinh) values (#{hoten}, #{matk}, -1)")
     public void registration(String hoten, int matk);
     
     @Select("UPDATE schema01.account_information SET hoten=#{hoten}, ngaysinh=#{ngaysinh}, gioitinh=#{gioitinh}, diachi=#{diachi} WHERE matt=#{matt}")

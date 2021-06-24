@@ -7,4 +7,5 @@ public class RegistrationForm {
     private String username;
     private String hoten;
     private String pass;
+    private int loaitk;
 }
